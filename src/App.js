@@ -7,7 +7,6 @@ function App() {
 
 const [showAddTask, setShowAddTask] = useState(false)
 
-
 // placeholder data for dev
 const [tasks, setTasks] = useState([
   {
@@ -32,27 +31,22 @@ const [tasks, setTasks] = useState([
 
 // add task
 const addTask = (task) => {
-  
   const id = Math.floor(Math.random() * 10000) +1
   console.log(id)
   const newTask = { id, ...task }
   setTasks([...tasks, newTask])
-
 }
-
 
 // delete task
 const deleteTask = (id) => {
   console.log('delete', id)
   setTasks(tasks.filter((task) => task.id !== id))
-
 }
 
 // toggle reminder
 const toggleReminder = (id) => {
   console.log(id)
   setTasks(tasks.map((task) => task.id === id ? {...task, reminder: !task.reminder } : task))
-
 }
 
   return (
